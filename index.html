@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <title>Kanban Board</title>
+</head>
+
+<body>
+    <div class="header">
+        <h1>Kanban Board</h1>
+    </div>
+
+    <div class="btnContainer" >
+
+        <div class="btnAdd">
+            <button class="btnPrimary" onclick="openModal()">Adicionar nova tarefa</button>
+        </div>
+    </div>
+    
+    <div class="container">
+
+        <div class="column todo" id="todoColumn">
+            <div class="head">
+                <span>A Fazer</span>
+            </div>
+            <div class="body">
+
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="head">
+                <span>Em progresso</span>
+            </div>
+            <div class="body">
+
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="head">
+                <span>Finalizado</span>
+            </div>
+            <div class="body">
+
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="head">
+                <span>Arquivado</span>
+            </div>
+            <div class="body">
+
+            </div>
+        </div>
+
+
+    </div>
+
+    <div id="modal">
+        <div class="box">
+            <div class="head">
+                <span>Nova tarefa</span>
+                <button onclick="closeModal()">X</button>
+            </div>
+
+
+            <div class="form">
+
+                <div class="form-group">
+                    <label for="description">Descrição</label>
+                    <textarea id="description" rows="3"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="priority">Prioridades</label>
+                    <select id="priority">
+                        <option>Baixa</option>
+                        <option>Média</option>
+                        <option>Alta</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="">Prazo</label>
+                    <input type="date" id="deadline">
+                </div>
+
+                <button class="btnPrimary" onclick="createTask()">Cadastrar</button>
+
+
+            </div>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+    <script src="./moment.min.js"></script>
+</body>
+
+</html>

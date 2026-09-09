@@ -1,0 +1,178 @@
+:root{
+    --primary-color: #000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    outline: none;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: beige;
+}
+
+.header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: aliceblue;
+    padding: 30px ;
+}
+
+.btnPrimary{
+    border: none;
+    background-color: var(--primary-color);
+    color: aliceblue;
+    font-size: 16px;
+    padding: 9px 22px;
+    cursor: pointer;
+}
+
+
+.btnContainer{
+    display: grid;
+    justify-content: right;
+    padding: 24px 50px 0  0;
+}
+
+.container{
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    align-items: baseline;
+    padding: 50px;
+}
+
+.container .column{
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    
+
+}
+
+.container .column .head{
+    text-align: left;
+    padding: 24px;
+    background-color: blanchedalmond;
+}
+
+.container .column .body{
+
+display: flex;
+flex-direction: column;
+padding: 15px;
+text-align: center;
+
+}
+
+.container .column .body .card{
+
+background-color: #eee;
+padding: 10px;
+display: flex;
+flex-direction: column;
+gap: 8px;
+margin-bottom: 8px;
+
+}
+
+.container .column .body .card .info{
+
+font-size: 14px;
+color: #333;
+display: flex;
+flex-direction: column;
+
+}
+
+
+
+#modal{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+#modal .box{
+    background-color: #fff;
+    width: 400px;
+    overflow: hidden;
+}
+
+#modal .box .head{
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 24px;
+    border-bottom: 1px solid #ddd;
+}
+
+#modal .box .head span{
+    font-size: 18px;
+    font-weight: 700;
+    color: rgb(31, 31, 31);
+}
+
+#modal .box .head button{
+    border: 0;
+    background: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#modal .box .form{
+    padding: 24px;
+
+}
+
+#modal .box .form .form-group{
+    margin-bottom: 16px;
+}
+
+#modal .box .form label{
+    display: block;
+    font-size: 14px;
+    color: black;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+
+#modal .box .form textarea::selection{
+    color: #fff;
+    background-color: chocolate;
+}
+
+#modal .box .form select {
+
+    appearance: none;
+    background-image: url(./images/chevrondown.svg);
+    background-size: 10%;
+    background-position: right 16px center;
+    background-repeat: no-repeat;
+
+}
+
+
+#modal .box .form textarea, #modal .box .form select, #modal .box .form input{
+    width: 100%;
+    font-size: 16px;
+    color: var(--primary-color);
+    padding: 8px;
+    border: 1px solid var(--primary-color);;
+}
+
+#modal .box .form button{
+    display: block;
+    margin-left: auto;
+}
