@@ -2,17 +2,56 @@ const $modal = document.getElementById('modal');
 const $descriptionInput = document.getElementById('description');
 const $priorityInput = document.getElementById('priority');
 const $deadLineInput =document.getElementById('deadline');
+const $idInput = document.getElementById('idInput');
 
 const $todoColumnBody = document.querySelector('#todoColumn .body');
 
+const $creationModeBtn = document.getElementById('creationModeBtn');
+const $editingModeBtn = document.getElementById('editingModeBtn');
+
+const $creationModeTitle = document.getElementById('creationModeTitle');
+const $editingModeTitle = document.getElementById('editingModeTitle');
+
 var todoList = [];
 
-function openModal(){
+function openModal(id){
     $modal.style.display = "flex";
+
+    if (id){
+
+        $creationModeTitle.style.display ="none";
+        $editingModeTitle.style.display ="block";
+
+        $creationModeBtn.style.display ="none";
+        $editingModeBtn.style.display ="block"
+
+
+        const index = todoList.findIndex(function(task){
+            return task.id == id;
+        });
+    
+        const task = todoList[index];
+
+        $idInput.value = task.id;
+        $descriptionInput.vale = task.description;
+        $priorityInput.vale = task.priority;
+        $deadLineInput.vale = task.deadline;
+
+    } else{
+        $creationModeTitle.style.display ="block";
+        $editingModeTitle.style.display ="none";
+        
+        $creationModeBtn.style.display ="block";
+        $editingModeBtn.style.display ="none";
+    }
 }
 
 function closeModal(){
     $modal.style.display = "none";
+    $idInput.value = "";
+    $descriptionInput.value = "";
+    $priorityInput.value = "";
+    $deadLineInput.value = ""; 
 }
 
 function generateCards(){
@@ -20,7 +59,7 @@ function generateCards(){
         const formattedDate = moment(task.deadline).format('DD/MM/YYYY');
         return `
         
-        <div class="card">
+        <div class="card" ondblclick="openModal(${task.id})">
             <div class="info">
             <b>Descrição:</b>
             <span>${task.description}</span>
@@ -47,6 +86,7 @@ function generateCards(){
 function createTask(){
 
     const newTask = {
+        id: Math.floor(Math.random() * 999999999),
         description: $descriptionInput.value,
         priority: $priorityInput.value,
         deadline: $deadLineInput.value, 
@@ -57,5 +97,25 @@ function createTask(){
 closeModal();
 generateCards();
 
+}
+
+function updateTask(){
+
+    const task = {
+    id: $idInput.value,
+    description: $descriptionInput.value,
+    priority: $priorityInput.value,
+    deadline: $deadLineInput.value, 
+    }
+
+    const index = todoList.findIndex(function(task){
+     return task.id == $idInput.value;
+        });
+
+    todoList[index] = task;
+
+    closeModal();
+    generateCards();
+    
 }
 
