@@ -19,19 +19,26 @@
 
 <body>
     <div class="header">
-        <h1>Kanban Board</h1>
+
+        <span class="material-symbols-outlined">
+            menu
+        </span>
+        <!--<button class="material-symbols-outlined" onclick="closeModal()">
+            menu
+        </button>-->
+        Minha organização
     </div>
 
-    <div class="btnContainer" >
+    <div class="btnContainer">
 
         <div class="btnAdd">
             <button class="btnPrimary" onclick="openModal()">Adicionar nova tarefa</button>
         </div>
     </div>
-    
+
     <div class="container">
 
-        <div class="column todo" id="todoColumn">
+        <div class="column todo" data-column="1">
             <div class="head">
                 <span>A Fazer</span>
             </div>
@@ -40,7 +47,7 @@
             </div>
         </div>
 
-        <div class="column">
+        <div class="column" data-column="2">
             <div class="head">
                 <span>Em progresso</span>
             </div>
@@ -49,7 +56,7 @@
             </div>
         </div>
 
-        <div class="column">
+        <div class="column" data-column="3">
             <div class="head">
                 <span>Finalizado</span>
             </div>
@@ -58,7 +65,7 @@
             </div>
         </div>
 
-        <div class="column">
+        <div class="column" data-column="4">
             <div class="head">
                 <span>Arquivado</span>
             </div>
@@ -83,7 +90,7 @@
 
 
             <div class="form">
-                    <input type="hidden" id="idInput">
+                <input type="hidden" id="idInput">
                 <div class="form-group">
                     <label for="description">Descrição</label>
                     <textarea id="description" rows="3"></textarea>
@@ -95,6 +102,17 @@
                         <option>Baixa</option>
                         <option>Média</option>
                         <option>Alta</option>
+                    </select>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="column">Coluna</label>
+                    <select id="column">
+                        <option value="1">A Fazer</option>
+                        <option value="2">Em progresso</option>
+                        <option value="3">Finalizado</option>
+                        <option value="4">Arquivado</option>
                     </select>
                 </div>
 
@@ -111,8 +129,9 @@
         </div>
     </div>
 
+        <script src="./moment.min.js"></script>
     <script src="./script.js"></script>
-    <script src="./moment.min.js"></script>
+
 </body>
 
 </html>

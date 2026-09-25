@@ -19,8 +19,9 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: aliceblue;
+    background-color: #fff;
     padding: 30px ;
+    box-shadow: 0 0 3px #00000022;
 }
 
 .btnPrimary{
@@ -72,12 +73,14 @@ text-align: center;
 
 .container .column .body .card{
 
-background-color: #eee;
+background-color: #fff;
 padding: 12px;
 display: flex;
 flex-direction: column;
 gap: 8px;
 margin-bottom: 8px;
+box-shadow: 2px 4px 2px rgba(29, 30, 30, 0.037);
+border: 1px solid #dddddd2f
 
 }
 
@@ -87,6 +90,7 @@ font-size: 14px;
 color: #333;
 display: flex;
 flex-direction: column;
+text-align: left;
 
 }
 
